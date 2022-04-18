@@ -18,10 +18,26 @@ uc5=`expr $a % $b + $c`
 
 computation=(["UC2"]=$uc2 ["UC3"]=$uc3 ["UC4"]=$uc4 ["UC5"]=$uc5)
 
-  for comp in "${!computation[@]}";
+for comp in "${!computation[@]}";
 do
 	echo $comp - ${computation[$comp]};
 done
 
 arr=(${computation[@]})
+echo ${arr[*]}
+
+for ((i=0; i<4; i++))
+do
+	for ((j=0; j<4-i-1; j++))
+	do
+		if [ ${arr[j]} -gt ${arr[$((j+1))]} ]
+		then
+			temp=${arr[j]}
+			arr[$j]=${arr[$((j+1))]}
+			arr[$((j+1))]=$temp
+		fi
+	done
+done
+
+echo "Array in sorted order: "
 echo ${arr[*]}
