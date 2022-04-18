@@ -30,7 +30,7 @@ for ((i=0; i<4; i++))
 do
 	for ((j=0; j<4-i-1; j++))
 	do
-		if [ ${arr[j]} -gt ${arr[$((j+1))]} ]
+		if [ ${arr[j]} -lt ${arr[$((j+1))]} ]
 		then
 			temp=${arr[j]}
 			arr[$j]=${arr[$((j+1))]}
@@ -39,5 +39,5 @@ do
 	done
 done
 
-echo "Array in sorted order: "
+echo "Array in ascending order: "
 echo ${arr[*]}
