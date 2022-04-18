@@ -39,5 +39,6 @@ do
 	done
 done
 
-echo "Array in sorted order: "
+echo "Array in Ascending order: "
 echo ${arr[*]}
+
