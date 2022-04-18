@@ -2,7 +2,7 @@
 
 #! /bin/bash -x
 declare -A computation
-read -p "Enter valur of a: " a
+read -p "Enter value of a: " a
 read -p "Enter value of b: " b
 read -p "Enter value of c: " c
 
@@ -16,9 +16,12 @@ uc5=`expr $a % $b + $c`
 #echo "UC4= $uc4"
 #echo "UC5= $uc5"
 
-computation=(["UC2"]=$uc2 ["US3"]=$uc3 ["UC4"]=$uc4 ["UC5"]=$uc5)
+computation=(["UC2"]=$uc2 ["UC3"]=$uc3 ["UC4"]=$uc4 ["UC5"]=$uc5)
 
-for comp in "${!computation[@]}";
+  for comp in "${!computation[@]}";
 do
 	echo $comp - ${computation[$comp]};
 done
+
+arr=(${computation[@]})
+echo ${arr[*]}
